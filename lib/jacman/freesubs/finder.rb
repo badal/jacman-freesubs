@@ -6,6 +6,7 @@
 #
 # (c) Michel Demazure <michel@demazure.com>
 module JacintheManagement
+  # tools for free subscriptions management
   module Freesubs
     # @param [Integer] year year in 'yyyy' form
     # @return [Array<Abo>] list of all Abos found for this year

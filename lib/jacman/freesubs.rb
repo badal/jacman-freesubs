@@ -16,6 +16,7 @@ require_relative 'freesubs/query.rb'
 require_relative 'freesubs/version.rb'
 
 module JacintheManagement
+  # tools for free subscriptions management
   module Freesubs
     HELP_FILE = File.join(File.dirname(__FILE__), '..', '..', 'help/help.pdf')
     CONFIG_FILE = File.join(File.dirname(__FILE__), 'config.rb')

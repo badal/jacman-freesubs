@@ -7,7 +7,7 @@
 # (c) Michel Demazure <michel@demazure.com>
 
 module JacintheManagement
-  # management of free subscriptions
+  # tools for free subscriptions management
   module Freesubs
     # whether abos are really extended
     EFFECTIVE = false

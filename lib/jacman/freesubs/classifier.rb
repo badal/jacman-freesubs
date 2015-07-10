@@ -7,6 +7,7 @@
 # (c) Michel Demazure <michel@demazure.com>
 
 module JacintheManagement
+  # tools for free subscriptions management
   module Freesubs
     # @param [Integer|String] year year in 'yyyy' form
     # @return [Classifier] filled Classifier for this year

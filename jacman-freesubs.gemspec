@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.author = 'Michel Demazure'
   s.email = 'michel@demazure.com'
   # s.executables = ['your_executable_here']
-  s.files = %w(LICENSE README.md HISTORY.md MANIFEST Rakefile) + Dir.glob('{bin,lib,spec}/**/*')
+  s.files = %w(LICENSE README.md HISTORY.md MANIFEST Rakefile) + Dir.glob('{lib,spec}/**/*')
   s.require_path = 'lib'
   s.bindir = 'bin'
 end

@@ -7,6 +7,7 @@
 # (c) Michel Demazure <michel@demazure.com>
 
 module JacintheManagement
+  # tools for free subscriptions management
   module Freesubs
     MAJOR = 0
     MINOR = 3
