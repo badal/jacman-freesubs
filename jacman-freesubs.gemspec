@@ -11,10 +11,11 @@ Gem::Specification.new do |s|
   s.version = JacintheManagement:: Freesubs::VERSION
   s.has_rdoc = true
   s.extra_rdoc_files = ['README.md', 'LICENSE']
-  s.summary = 'To be replaced'
-  s.description = 'To be replaced'
+  s.summary = 'Tools for free subscriptions management'
+  s.description = 'Used by the specific GUI Jacman tool'
   s.author = 'Michel Demazure'
   s.email = 'michel@demazure.com'
+  s.homepage = 'http://github.com/badal/jacman-tools'
   # s.executables = ['your_executable_here']
   s.files = %w(LICENSE README.md HISTORY.md MANIFEST Rakefile) + Dir.glob('{lib,spec}/**/*')
   s.require_path = 'lib'
