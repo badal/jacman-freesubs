@@ -13,6 +13,6 @@ module JacintheManagement
     EFFECTIVE = false
 
     # year of abo. to be extended
-    YEAR = 2015
+    YEAR = Time.now.year
   end
 end
