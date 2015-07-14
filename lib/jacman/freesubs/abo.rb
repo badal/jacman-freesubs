@@ -179,11 +179,8 @@ module JacintheManagement
       # do insert the extended 'abonnement', marking the Abo and the initial 'abonnement'
       # @param [String] new_year year to extend the abo to
       def extend_to_year!(new_year)
-        if EFFECTIVE
-          Query.new(extended_to(new_year).insertion_query).send
-          Query.new(mark_query).send
-        end
-        mark!
+        Query.new(extended_to(new_year).insertion_query).send
+        Query.new(mark_query).send
       end
     end
   end

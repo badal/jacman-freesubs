@@ -12,8 +12,10 @@ module JacintheManagement
       attr_reader :extensible_abos, :names
 
       # @param [Integer|String] year year in 'yyyy' form
-      def initialize(year)
+      # @param [Bool] mode whether extension has to be transmitted to DB
+      def initialize(year, mode)
         @year = year
+        @mode = mode
         cl = Freesubs.classifier(@year)
         @all_abos = cl.abos
         @names = cl.list_of_names
@@ -53,7 +55,10 @@ module JacintheManagement
       # @return [Integer] number of extended abos
       def extend_list(selected_acronyms)
         all = selected_acronyms.map { |acro| @extensible_abos[acro] }.flatten
-        all.each { |abo| abo.extend_to_year!(@year + 1) }
+        all.each do |abo|
+          abo.extend_to_year!(@year + 1) if @mode
+          abo.mark!
+        end
         all.size
       end
     end
