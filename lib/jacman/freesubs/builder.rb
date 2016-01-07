@@ -1,22 +1,23 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-# File: extender.rb
+# File: builder.rb
 # Created: 25/09/2014
 #
 # (c) Michel Demazure <michel@demazure.com>
 module JacintheManagement
   module Freesubs
     # model methods for GUI
-    class Extender
+    class Builder
       attr_reader :extensible_abos, :names
 
-      # @param [Integer|String] year year in 'yyyy' form
+      # @param [String] regexp client selection regexpp
+      # @param [Integer] year year in 'yyyy' form
       # @param [Bool] mode whether extension has to be transmitted to DB
-      def initialize(year, mode)
+      def initialize(regexp, year, mode)
         @year = year
         @mode = mode
-        cl = Freesubs.classifier(@year)
+        cl = Freesubs.classifier(regexp, @year)
         @all_abos = cl.abos
         @names = cl.list_of_names
         update_extension_list

@@ -8,37 +8,34 @@
 module JacintheManagement
   # tools for free subscriptions management
   module Freesubs
+    # @param [String] regexp client selection regexpp
     # @param [Integer] year year in 'yyyy' form
     # @return [Array<Abo>] list of all Abos found for this year
-    def self.find_all(year)
-      Finder.new(year).all
+    def self.find_all(regexp, year)
+      Finder.new(regexp, year).all
     end
 
+    # @param [String] regexp client selection regexpp
+    # @param [Integer] year year in 'yyyy' form
     # @return [Integer] number of Abos found for this year
-    def self.count(year)
-      Finder.new(year).count
+    def self.count(regexp, year)
+      Finder.new(regexp, year).count
     end
 
     # to extract all free 'abonnements' from the database
     class Finder
       attr_reader :year
 
+      # @param [String] regexp client selection regexpp
       # @param [Integer|String] year year in 'yyyy' form
-      # @return [Array<Abo>] list of all Abos found for this year
-      def self.all(year)
-        new(year).all
-      end
-
-      # @param [Integer|String] year year in 'yyyy' form
-      def initialize(year)
+      def initialize(regexp, year)
         @year = year
+        @regexp = regexp
       end
 
       # @return [String] mysql selection query
       def selection
-        "abonnement where\
-( abonnement_client_sage like '%GRATUIT%' or \
-abonnement_client_sage like '%ECHANGE%' )\
+        "abonnement where abonnement_client_sage REGEXP '#{@regexp}' \
  and abonnement_annee=#{@year} and abonnement_ignorer=0"
       end
 

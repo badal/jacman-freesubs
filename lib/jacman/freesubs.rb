@@ -8,7 +8,7 @@
 
 require_relative 'freesubs/abo.rb'
 require_relative 'freesubs/classifier.rb'
-require_relative 'freesubs/extender.rb'
+require_relative 'freesubs/builder.rb'
 require_relative 'freesubs/finder.rb'
 require_relative 'freesubs/query.rb'
 require_relative 'freesubs/version.rb'
