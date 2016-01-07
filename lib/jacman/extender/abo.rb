@@ -15,7 +15,7 @@ class Fixnum
 end
 
 module JacintheManagement
-  module Freesubs
+  module Extender
     # an Abo is a sub_hash of an 'abonnement' record of Jacinthe
     class Abo < ::Hash
       # keys to build the new Abo

@@ -8,10 +8,10 @@
 
 module JacintheManagement
   # tools for free subscriptions management
-  module Freesubs
+  module Extender
     MAJOR = 0
-    MINOR = 4
-    TINY = 1
+    MINOR = 5
+    TINY = 0
 
     VERSION = [MAJOR, MINOR, TINY].join('.')
   end

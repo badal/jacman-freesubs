@@ -6,9 +6,21 @@
 #
 # (c) Michel Demazure <michel@demazure.com>
 module JacintheManagement
-  module Freesubs
+  module Extender
     # model methods for GUI
     class Builder
+      def self.all(year, mode)
+        new('GRATUIT|ECHANGE', year, mode)
+      end
+
+      def self.free(year, mode)
+        new('GRATUIT', year, mode)
+      end
+
+      def self.exchange(year, mode)
+        new('ECHANGE', year, mode)
+      end
+
       attr_reader :extensible_abos, :names
 
       # @param [String] regexp client selection regexpp
@@ -17,7 +29,7 @@ module JacintheManagement
       def initialize(regexp, year, mode)
         @year = year
         @mode = mode
-        cl = Freesubs.classifier(regexp, @year)
+        cl = Extender.classifier(regexp, @year)
         @all_abos = cl.abos
         @names = cl.list_of_names
         update_extension_list
@@ -43,7 +55,7 @@ module JacintheManagement
         list = @extensible_abos.each_pair.map do |key, value|
           selected_acronyms.include?(key) ? value.size : 0
         end
-        list.reduce(:+)
+        list.reduce(0, :+)
       end
 
       # @return [Array<String>] all acronyms

@@ -8,12 +8,12 @@
 
 module JacintheManagement
   # tools for free subscriptions management
-  module Freesubs
+  module Extender
     # @param [String] regexp client selection regexpp
     # @param [Integer|String] year year in 'yyyy' form
     # @return [Classifier] filled Classifier for this year
     def self.classifier(regexp, year)
-      array = Freesubs.find_all(regexp, year)
+      array = Extender.find_all(regexp, year)
       Classifier.new.classify(array)
     end
 

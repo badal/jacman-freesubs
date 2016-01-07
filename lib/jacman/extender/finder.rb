@@ -7,7 +7,7 @@
 # (c) Michel Demazure <michel@demazure.com>
 module JacintheManagement
   # tools for free subscriptions management
-  module Freesubs
+  module Extender
     # @param [String] regexp client selection regexpp
     # @param [Integer] year year in 'yyyy' form
     # @return [Array<Abo>] list of all Abos found for this year

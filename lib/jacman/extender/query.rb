@@ -17,7 +17,7 @@ class String
 end
 
 module JacintheManagement
-  module Freesubs
+  module Extender
     # MySQL queries
     class Query
       # @param [String] qry text of the query
