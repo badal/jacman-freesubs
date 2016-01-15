@@ -9,6 +9,25 @@ module JacintheManagement
   module Extender
     # model methods for GUI
     class Builder
+      def self.subtitle(state)
+        case state
+        when 0, 1
+          'Aucune sélection'
+        when 2
+          'Extension des abonnements gratuits, mode simulé'
+        when 3
+          'Extension des abonnements gratuits, mode réel'
+        when 4
+          'Extension des abonnements d\'échange, mode simulé'
+        when 5
+          'Extension des abonnements d\'échange, mode réel'
+        when 6
+          'Extension des abonnements gratuits et d\'échange, mode simulé'
+        when 7
+          'Extension des abonnements gratuits et d\'échange, mode réel'
+        end
+      end
+
       def self.all(year, mode)
         new('GRATUIT|ECHANGE', year, mode)
       end
@@ -19,6 +38,20 @@ module JacintheManagement
 
       def self.exchange(year, mode)
         new('ECHANGE', year, mode)
+      end
+
+      def self.from_state(year, state)
+        mode = state.odd?
+        case state
+        when 0, 1
+          nil
+        when 2, 3
+          free(year, mode)
+        when 4, 5
+          exchange(year, mode)
+        when 6, 7
+          all(year, mode)
+        end
       end
 
       attr_reader :extensible_abos, :names
